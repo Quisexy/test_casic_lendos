@@ -14,7 +14,7 @@ function App() {
         <p>No Limit Play!</p>
         <button 
           className="cta-button"
-          onClick={() => handleExternalLink('https://example.com')}
+          onClick={() => handleExternalLink('https://open-vodkabet-link.xn--80ajijifckmefhfefg4lg.xn--p1ai/')}
         >
           Get Started
         </button>
