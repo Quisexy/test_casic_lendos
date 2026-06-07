@@ -1,43 +1,7 @@
 ﻿import React, { useState } from 'react';
-import axios from 'axios';
 import './index.css';
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState('');
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setSuccess('');
-    
-    try {
-      const response = await axios.post('/api/contact', formData);
-      if (response.data.success) {
-        setSuccess(response.data.message);
-        setFormData({ name: '', email: '', message: '' });
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setSuccess('Error sending message. Please try again.');
-    } finally {
-      setLoading(false);
-      setTimeout(() => setSuccess(''), 3000);
-    }
-  };
-
   const handleExternalLink = (url) => {
     window.open(url, '_blank');
   };
